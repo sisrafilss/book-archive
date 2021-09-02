@@ -28,7 +28,6 @@ const displayBookDetails = books => {
 
     // Loop through each book object and enter their detail on the page
     books?.forEach(book => {
-        const coverURL = `https://covers.openlibrary.org/b/id/${book?.cover_i}-M.jpg`;
         const title = book?.title;
         const author = book?.author_name;
         const publisher = book?.publisher;
@@ -38,7 +37,8 @@ const displayBookDetails = books => {
         div.innerHTML = `
                 <div class="card">
                    <div id="cover-container">
-                        <img src="${coverURL}" class="card-img-top img-fluid" alt="">
+                        <!-- Checking if book cover image gotten from api or not -->
+                        ${cover(book?.cover_i)}
                    </div>
                     <div class="card-body text-center">
                         <h5 id="book-title" class="card-title"><a class="text-decoration-none" href="">${validator(title)}</a></h5>
@@ -71,4 +71,15 @@ const showResultsCount = (resultFound, resultShowing) => {
     else {
         matchedResult.innerText = `Showing results ${resultShowing} of ${resultFound}`;
     }
+}
+
+// Checking if book cover image gotten from api or not
+const cover = coverId => {
+        if (coverId !== undefined) {
+            coverURL = `https://covers.openlibrary.org/b/id/${coverId}-M.jpg`;
+            return `<img src="${coverURL}" class="card-img-top img-fluid" alt="Cover not Availabe">`
+        }
+        else {
+            return `<p class="display-5 text-center text-warning">Cover not Availabe!</p>`
+        }
 }
