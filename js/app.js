@@ -28,7 +28,6 @@ const displayBookDetails = books => {
 
     // Loop through each book object and enter their detail on the page
     books?.forEach(book => {
-        console.log(book?.cover_i);
         const coverURL = `https://covers.openlibrary.org/b/id/${book?.cover_i}-M.jpg`;
         const title = book?.title;
         const author = book?.author_name;
