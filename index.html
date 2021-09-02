@@ -16,31 +16,41 @@
     
 
     <main>
+        <!-- Search Field -->
         <section>
             <div class="container">
                 <h1 class="display-1 text-center">Book Archive</h1>
                 <div class="w-75 mx-auto">
                     <div class="input-group">
-                        <input type="search" class="form-control rounded" placeholder="Search by book name" aria-label="Search"
+                        <input id="search-field" type="search" class="form-control rounded" placeholder="Search by book name" aria-label="Search"
                           aria-describedby="search-addon" />
-                        <button type="button" class="btn btn-outline-primary">Search</button>
+                        <button onclick="search()" type="button" class="btn btn-outline-primary">Search</button>
                       </div>
+                </div>
+                <!-- How much result found -->
+                <div>
+                    <p id="result-found" class="text-center display-5 mt-4"></p>
                 </div>
             </div>
         </section>
+
+        <!-- Showing Search Result -->
         <section class="mt-5">
             <div class="container">
-                <div class="row row-cols-1 row-cols-md-3 row-cols-sm-1 g-4">
+                
+                <div id="search-results" class="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-1 g-4">
                     
-                    <div class="col">
+                    <!-- <div class="col">
                       <div class="card">
-                        <img src="..." class="card-img-top" alt="...">
+                          <div>
+                            <img src="..." class="card-img-top" alt="...">
+                          </div>
                         <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
+                          <h5 id="book-title" class="card-title">Card title</h5>
                           <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                         </div>
                       </div>
-                    </div>
+                    </div> -->
 
                   </div>
             </div>
